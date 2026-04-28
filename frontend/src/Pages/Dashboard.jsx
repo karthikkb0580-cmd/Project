@@ -109,7 +109,12 @@ export default function Dashboard() {
             </p>
           )}
           <div className="space-y-0.5">
-            {NAV_ITEMS.map(item => {
+            {NAV_ITEMS.filter(item => {
+              if (user.role === 'Doctor' || user.role === 'Caregiver') {
+                return ['Overview', 'Settings'].includes(item.label);
+              }
+              return true;
+            }).map(item => {
               const isActive = item.path === '/Dashboard'
                 ? location.pathname === '/Dashboard'
                 : location.pathname.startsWith(item.path);

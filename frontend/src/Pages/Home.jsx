@@ -134,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-6 bg-gray-900">
+      {/* <section className="py-24 px-6 bg-gray-900">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-5 tracking-tight">
             Start managing your medications the smart way
@@ -150,7 +150,7 @@ export default function Home() {
           </Link>
           <p className="text-gray-600 text-xs mt-5">No credit card required · Cancel anytime</p>
         </div>
-      </section>
+      </section>*/}
     </main>
   )
 }
