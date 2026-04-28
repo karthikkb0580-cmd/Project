@@ -13,11 +13,11 @@ export const NAV_LINKS = [
  * Dashboard sidebar navigation items.
  */
 export const DASHBOARD_NAV = [
-  { label: 'Overview',        path: ROUTES.DASHBOARD },
-  { label: 'Medications',     path: ROUTES.DASHBOARD_MEDICATIONS },
-  { label: 'Reminders',       path: ROUTES.DASHBOARD_REMINDERS },
-  { label: 'AI Verification', path: ROUTES.DASHBOARD_AI_VERIFICATION },
-  { label: 'Risk Report',     path: ROUTES.DASHBOARD_RISK_REPORT },
-  { label: 'Caregiver Link',  path: ROUTES.DASHBOARD_CAREGIVER_LINK },
-  { label: 'Settings',        path: ROUTES.DASHBOARD_SETTINGS },
+  { label: 'Overview',        path: ROUTES.DASHBOARD,                roles: ['Patient', 'Caregiver', 'Doctor'] },
+  { label: 'Medications',     path: ROUTES.DASHBOARD_MEDICATIONS,    roles: ['Patient', 'Caregiver'] },
+  { label: 'Reminders',       path: ROUTES.DASHBOARD_REMINDERS,      roles: ['Patient', 'Caregiver'] },
+  { label: 'AI Verification', path: ROUTES.DASHBOARD_AI_VERIFICATION, roles: ['Patient'] },
+  { label: 'Risk Report',     path: ROUTES.DASHBOARD_RISK_REPORT,    roles: ['Patient', 'Caregiver'] },
+  { label: 'Caregiver Link',  path: ROUTES.DASHBOARD_CAREGIVER_LINK, roles: ['Patient'] },
+  { label: 'Settings',        path: ROUTES.DASHBOARD_SETTINGS,       roles: ['Patient', 'Caregiver', 'Doctor'] },
 ];

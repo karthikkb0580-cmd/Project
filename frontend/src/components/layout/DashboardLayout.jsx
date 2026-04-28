@@ -66,7 +66,9 @@ export default function DashboardLayout() {
         <nav className="flex-1 px-3 py-4 overflow-y-auto overflow-x-hidden">
           {sidebarOpen && <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest px-2 mb-3">Navigation</p>}
           <div className="space-y-0.5">
-            {DASHBOARD_NAV.map(item => {
+            {DASHBOARD_NAV
+              .filter(item => !item.roles || item.roles.includes(user.role))
+              .map(item => {
               const isActive = item.path === ROUTES.DASHBOARD ? location.pathname === ROUTES.DASHBOARD : location.pathname.startsWith(item.path);
               return (
                 <Link key={item.label} to={item.path} title={!sidebarOpen ? item.label : undefined} className={`nav-item no-underline ${isActive ? 'active' : ''}`} style={{ justifyContent: sidebarOpen ? 'flex-start' : 'center' }}>

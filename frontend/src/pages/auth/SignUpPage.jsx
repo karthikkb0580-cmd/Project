@@ -8,14 +8,14 @@ import ROUTES from '../../constants/routes';
 export default function SignUpPage() {
   const navigate = useNavigate();
   const { login } = useAuth();
-  const [form, setForm] = useState({ name: '', email: '', password: '' });
+  const [form, setForm] = useState({ name: '', email: '', password: '', role: 'Patient' });
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const userData = await authService.register(form.name, form.email, form.password);
+      const userData = await authService.register(form.name, form.email, form.password, form.role);
       login(userData);
       navigate(ROUTES.DASHBOARD);
     } catch (err) {
@@ -83,6 +83,26 @@ export default function SignUpPage() {
           <p className="text-gray-500 text-sm mb-8">Start your intelligent medication journey today</p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-3">I am registering as a</label>
+              <div className="grid grid-cols-3 gap-2">
+                {['Patient', 'Caregiver', 'Doctor'].map(role => (
+                  <button
+                    key={role}
+                    type="button"
+                    onClick={() => setForm({ ...form, role })}
+                    className={`py-2 rounded-lg text-xs font-bold transition-all border ${
+                      form.role === role 
+                        ? 'bg-gray-900 border-gray-900 text-white shadow-md' 
+                        : 'bg-white border-gray-200 text-gray-600 hover:border-gray-300'
+                    }`}
+                  >
+                    {role}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
               <input
