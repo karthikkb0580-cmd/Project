@@ -12,8 +12,6 @@ import AIVerification from './Pages/dashboard/AIVerification'
 import RiskReport from './Pages/dashboard/RiskReport'
 import CaregiverLink from './Pages/dashboard/CaregiverLink'
 import Settings from './Pages/dashboard/Settings'
-import './index.css'
-
 function App() {
   const location = useLocation()
   const isDashboard = location.pathname.startsWith('/Dashboard')

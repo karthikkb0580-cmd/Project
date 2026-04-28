@@ -70,7 +70,7 @@ export default function Home() {
       </section>
 
       {/* Stats */}
-      <section className="border-y border-gray-100 bg-gray-50 py-14 px-6">
+      {/* <section className="border-y border-gray-100 bg-gray-50 py-14 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-10">
           {STATS.map((s, i) => (
             <div key={i} className="text-center">
@@ -79,7 +79,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Features */}
       <section id="features" className="py-24 px-6">
