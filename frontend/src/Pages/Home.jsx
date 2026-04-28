@@ -63,14 +63,14 @@ export default function Home() {
               See how it works
             </a>
           </div>
-          <p className="text-xs text-gray-400 mt-6">
+          {/* <p className="text-xs text-gray-400 mt-6">
             No credit card required &nbsp;·&nbsp; HIPAA compliant &nbsp;·&nbsp; Free forever plan
-          </p>
+          </p>*/}
         </div>
       </section>
 
       {/* Stats */}
-      {/* <section className="border-y border-gray-100 bg-gray-50 py-14 px-6">
+      {/*} <section className="border-y border-gray-100 bg-gray-50 py-14 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-10">
           {STATS.map((s, i) => (
             <div key={i} className="text-center">
@@ -79,7 +79,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section> */}
+      </section>
 
       {/* Features */}
       <section id="features" className="py-24 px-6">

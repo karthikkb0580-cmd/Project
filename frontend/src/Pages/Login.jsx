@@ -14,7 +14,7 @@ export default function Login() {
       localStorage.setItem('medsutra_user', JSON.stringify({
         name: username.charAt(0).toUpperCase() + username.slice(1),
         email: form.email,
-        role: 'Patient',
+        role: form.role || 'Patient',
         joined: new Date().toLocaleDateString('en-IN', { month: 'long', year: 'numeric' }),
         avatar: username.charAt(0).toUpperCase(),
       }));
@@ -107,6 +107,26 @@ export default function Login() {
                 onChange={e => setForm({ ...form, password: e.target.value })}
                 className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gray-400 focus:ring-2 focus:ring-gray-200 transition-all"
               />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Role</label>
+              <div className="grid grid-cols-3 gap-3">
+                {['Patient', 'Doctor', 'Caregiver'].map((role) => (
+                  <button
+                    key={role}
+                    type="button"
+                    onClick={() => setForm({ ...form, role })}
+                    className={`py-2 px-2 rounded-xl text-sm font-medium transition-all ${
+                      form.role === role
+                        ? 'bg-gray-900 text-white shadow-md'
+                        : 'bg-white border border-gray-200 text-gray-700 hover:border-gray-400 hover:bg-gray-50'
+                    }`}
+                  >
+                    {role}
+                  </button>
+                ))}
+              </div>
             </div>
 
             <button

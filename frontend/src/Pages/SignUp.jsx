@@ -13,7 +13,7 @@ export default function SignUp() {
       localStorage.setItem('medsutra_user', JSON.stringify({
         name: form.name,
         email: form.email,
-        role: 'Patient',
+        role: form.role || 'Patient',
         joined: new Date().toLocaleDateString('en-IN', { month: 'long', year: 'numeric' }),
         avatar: form.name.charAt(0).toUpperCase(),
       }));
@@ -115,6 +115,25 @@ export default function SignUp() {
                 className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gray-400 focus:ring-2 focus:ring-gray-200 transition-all"
               />
             </div>
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Role</label>
+              <div className="grid grid-cols-3 gap-3">
+                {['Patient', 'Doctor', 'Caregiver'].map((role) => (
+                  <button
+                    key={role}
+                    type="button"
+                    onClick={() => setForm({ ...form, role })}
+                    className={`py-2 px-2 rounded-xl text-sm font-medium transition-all ${
+                      form.role === role
+                        ? 'bg-gray-900 text-white shadow-md'
+                        : 'bg-white border border-gray-200 text-gray-700 hover:border-gray-400 hover:bg-gray-50'
+                    }`}
+                  >
+                    {role}
+                  </button>
+                ))}
+              </div>
+            </div>
 
             <button
               type="submit"
@@ -123,9 +142,9 @@ export default function SignUp() {
             >
               {loading
                 ? <span className="flex items-center justify-center gap-2">
-                    <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Creating account...
-                  </span>
+                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  Creating account...
+                </span>
                 : 'Create Account'
               }
             </button>
